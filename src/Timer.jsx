@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./button.css"
 
 function Timer() {
   const lightMode = {
@@ -144,7 +145,7 @@ function Timer() {
   return (
     <div style={{ justifyItems: "center" }}>
       <div style={{ ...theme, padding: "10px" }}>
-        <button style={{...theme, margin: "5px" }} onClick={handleTheme}>
+        <button style={{ ...theme, margin: "5px" }} onClick={handleTheme}>
           Dark/Light
         </button>
         <h1 style={{ margin: "5px" }}>
@@ -158,15 +159,15 @@ function Timer() {
         </h1>
         <h1 style={{ margin: "5px" }}>{timer.type} - Time</h1>
         <button
-          // style={{...theme, margin: "5px" }}
+          style={{margin: "5px" }}
           disabled={timerStatus.isStarted}
           name="isStarted"
           onClick={handleTimerStatus}
         >
           Start
         </button>
-        <button
-          // style={{...theme, margin: "5px" }}
+        <button id="btn"
+          style={{margin: "5px" }}
           disabled={timerStatus.isStopped}
           name="isStopped"
           onClick={handleTimerStatus}
@@ -174,7 +175,7 @@ function Timer() {
           Stop
         </button>
         <button
-          // style={{...theme, margin: "5px" }}
+          style={{margin: "5px" }}
           disabled={timerStatus.isReseted}
           name="isResetted"
           onClick={handleTimerStatus}
@@ -183,14 +184,14 @@ function Timer() {
         </button>
         <form style={{ margin: "10x" }} onSubmit={handleSubmit}>
           <input
-            style={{...theme, margin: "5px" }}
+            style={{margin: "5px" }}
             type="number"
             name="workVal"
             value={userInput.workVal}
             onChange={handleInput}
           />
           <input
-            style={{...theme, margin: "5px" }}
+            style={{ ...theme, margin: "5px" }}
             type="number"
             name="breakVal"
             value={userInput.breakVal}
