@@ -1,6 +1,28 @@
 import React, { useEffect, useState } from "react";
 
 function Timer() {
+  const lightMode = {
+    backgroundColor: "white",
+    color: "black",
+    border: "1px solid black",
+  };
+
+  const darkMode = {
+    backgroundColor: "black",
+    color: "white",
+    border: "1px solid white",
+  };
+
+  const [theme, setTheme] = useState(lightMode);
+
+  function handleTheme() {
+    if (theme.backgroundColor === "white") {
+      setTheme(darkMode);
+    } else {
+      setTheme(lightMode);
+    }
+  }
+
   let defaultTimer = {
     minutes: 25,
     seconds: 0,
@@ -47,7 +69,7 @@ function Timer() {
   }
 
   function handleInput(e) {
-    const {name, value} = e.target
+    const { name, value } = e.target;
     setUserInput({
       ...userInput,
       [name]: value,
@@ -81,7 +103,7 @@ function Timer() {
   }
 
   useEffect(() => {
-    console.log("mounted")
+    console.log("mounted");
     let totalSeconds = timer.minutes * 60 + timer.seconds;
 
     if (timerStatus.isStarted) {
@@ -119,11 +141,13 @@ function Timer() {
     }
   }, [timerStatus]);
 
-
   return (
     <div style={{ justifyItems: "center" }}>
-      <div>
-        <h1>
+      <div style={{ ...theme, padding: "10px" }}>
+        <button style={{...theme, margin: "5px" }} onClick={handleTheme}>
+          Dark/Light
+        </button>
+        <h1 style={{ margin: "5px" }}>
           {timer.minutes.toString().length == 1
             ? 0 + timer.minutes.toString()
             : timer.minutes.toString()}
@@ -132,8 +156,9 @@ function Timer() {
             ? 0 + timer.seconds.toString()
             : timer.seconds.toString()}
         </h1>
-        <h1>{timer.type} - Time</h1>
+        <h1 style={{ margin: "5px" }}>{timer.type} - Time</h1>
         <button
+          style={{...theme, margin: "5px" }}
           disabled={timerStatus.isStarted}
           name="isStarted"
           onClick={handleTimerStatus}
@@ -141,6 +166,7 @@ function Timer() {
           Start
         </button>
         <button
+          style={{...theme, margin: "5px" }}
           disabled={timerStatus.isStopped}
           name="isStopped"
           onClick={handleTimerStatus}
@@ -148,26 +174,29 @@ function Timer() {
           Stop
         </button>
         <button
+          style={{...theme, margin: "5px" }}
           disabled={timerStatus.isReseted}
           name="isResetted"
           onClick={handleTimerStatus}
         >
           Reset
         </button>
-        <form onSubmit={handleSubmit}>
+        <form style={{ margin: "10x" }} onSubmit={handleSubmit}>
           <input
+            style={{...theme, margin: "5px" }}
             type="number"
             name="workVal"
             value={userInput.workVal}
             onChange={handleInput}
           />
           <input
+            style={{...theme, margin: "5px" }}
             type="number"
             name="breakVal"
             value={userInput.breakVal}
             onChange={handleInput}
           />
-          <button>Set</button>
+          <button style={theme}>Set</button>
         </form>
       </div>
     </div>
