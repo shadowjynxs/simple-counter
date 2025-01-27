@@ -158,7 +158,7 @@ function Timer() {
         </h1>
         <h1 style={{ margin: "5px" }}>{timer.type} - Time</h1>
         <button
-          style={{...theme, margin: "5px" }}
+          // style={{...theme, margin: "5px" }}
           disabled={timerStatus.isStarted}
           name="isStarted"
           onClick={handleTimerStatus}
@@ -166,7 +166,7 @@ function Timer() {
           Start
         </button>
         <button
-          style={{...theme, margin: "5px" }}
+          // style={{...theme, margin: "5px" }}
           disabled={timerStatus.isStopped}
           name="isStopped"
           onClick={handleTimerStatus}
@@ -174,7 +174,7 @@ function Timer() {
           Stop
         </button>
         <button
-          style={{...theme, margin: "5px" }}
+          // style={{...theme, margin: "5px" }}
           disabled={timerStatus.isReseted}
           name="isResetted"
           onClick={handleTimerStatus}
