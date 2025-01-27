@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./button.css"
+import "./button.css";
 
 function Timer() {
   const lightMode = {
@@ -159,15 +159,16 @@ function Timer() {
         </h1>
         <h1 style={{ margin: "5px" }}>{timer.type} - Time</h1>
         <button
-          style={{margin: "5px" }}
+          style={{ margin: "5px" }}
           disabled={timerStatus.isStarted}
           name="isStarted"
           onClick={handleTimerStatus}
         >
           Start
         </button>
-        <button id="btn"
-          style={{margin: "5px" }}
+        <button
+          id="btn"
+          style={{ margin: "5px" }}
           disabled={timerStatus.isStopped}
           name="isStopped"
           onClick={handleTimerStatus}
@@ -175,7 +176,7 @@ function Timer() {
           Stop
         </button>
         <button
-          style={{margin: "5px" }}
+          style={{ margin: "5px" }}
           disabled={timerStatus.isReseted}
           name="isResetted"
           onClick={handleTimerStatus}
@@ -184,7 +185,7 @@ function Timer() {
         </button>
         <form style={{ margin: "10x" }} onSubmit={handleSubmit}>
           <input
-            style={{margin: "5px" }}
+            style={{ ...theme, margin: "5px" }}
             type="number"
             name="workVal"
             value={userInput.workVal}
